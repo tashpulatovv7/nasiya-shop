@@ -1,0 +1,19 @@
+.customer-container {
+	padding: 0 50px;
+}
+
+.customer-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+}
+
+.customer-header input {
+	width: 50%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+}
+

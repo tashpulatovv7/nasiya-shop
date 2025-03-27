@@ -1,0 +1,28 @@
+header {
+	display: flex;
+	gap: 150px;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	background-color: #f3f4f6;
+	border-radius: 40px;
+	margin: 20px 200px 40px;
+}
+
+header a {
+	color: black;
+	font-size: 18px;
+	font-weight: 400;
+	text-decoration: none;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+}
+
+header a:hover {
+	color: #0e5ff6;
+	transition: all 0.3s ease-in-out;
+}
+
+.header-pages {
+	cursor: pointer;
+}

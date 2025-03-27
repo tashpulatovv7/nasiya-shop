@@ -1,0 +1,138 @@
+.calendar-container {
+	padding: 20px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.calendar-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.back-button {
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	padding: 8px;
+	margin-right: 16px;
+}
+
+.month-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.month-header h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.total-amount {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.amount {
+	font-weight: 600;
+}
+
+.calendar-navigation {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 24px;
+}
+
+.nav-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	background-color: #f3f4f6;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav-button:hover {
+	background-color: #e5e7eb;
+}
+
+.calendar-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 8px;
+	margin-bottom: 24px;
+}
+
+.weekday {
+	text-align: center;
+	font-weight: 600;
+	padding: 8px;
+	color: #6b7280;
+}
+
+.calendar-day {
+	position: relative;
+	aspect-ratio: 1;
+	background-color: #f3f4f6;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.calendar-day:hover {
+	background-color: #e5e7eb;
+}
+
+.calendar-day.selected {
+	background-color: #3b82f6;
+	color: white;
+}
+
+.payment-indicator {
+	position: absolute;
+	bottom: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: #10b981;
+}
+
+.payments-section {
+	background-color: #f3f4f6;
+	border-radius: 12px;
+	padding: 20px;
+}
+
+.payments-section h3 {
+	margin-bottom: 16px;
+	font-size: 18px;
+}
+
+.payment-card {
+	background-color: white;
+	border-radius: 8px;
+	padding: 16px;
+	margin-bottom: 12px;
+}
+
+.payment-card h4 {
+	margin: 0 0 8px 0;
+	font-size: 16px;
+}
+
+.payment-card p {
+	margin: 0;
+	color: #6b7280;
+}
