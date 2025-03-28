@@ -67,8 +67,10 @@
 .input-field {
 	width: 100%;
 	background-color: transparent;
-	border: none;
+	border: 1px solid black;
 	font-size: 1rem;
+	border-radius: 8px;
+	padding: 10px;
 }
 
 .input-field:focus {
