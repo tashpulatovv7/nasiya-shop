@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './header/Header';
 import Customer from './pages/customer/Customer';
 import Home from './pages/home/Home';
@@ -6,9 +6,12 @@ import Kalendar from './pages/kalendar/Kalendar';
 import Login from './pages/login/login';
 
 const App = () => {
+	const location = useLocation();
+	const isLoginPage = location.pathname === '/login';
+
 	return (
 		<>
-			<Header />
+			{!isLoginPage && <Header />}
 			<Routes>
 				<Route path='/login' element={<Login />} />
 				<Route path='/home' element={<Home />} />
