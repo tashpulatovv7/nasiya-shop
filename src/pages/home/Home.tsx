@@ -9,7 +9,7 @@ const Home = () => {
 				<div className='home-header'>
 					<div className='home-ava'>
 						<img src={ava} alt='' />
-						<p>Testuchun</p>
+						<p>bilol</p>
 					</div>
 					<Link to='/kalendar'>
 						<button>

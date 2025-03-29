@@ -61,7 +61,7 @@ const Login = () => {
 							<input
 								type='text'
 								name='email'
-								placeholder='admin'
+								placeholder='Login'
 								className='input-field'
 								value={formData.email}
 								onChange={handleChange}
@@ -69,7 +69,7 @@ const Login = () => {
 							<input
 								type='password'
 								name='password'
-								placeholder='12345'
+								placeholder='Parol'
 								className='input-field'
 								value={formData.password}
 								onChange={handleChange}

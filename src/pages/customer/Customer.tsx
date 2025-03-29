@@ -29,6 +29,48 @@ const Customer = () => {
 						<p>Jami nasiya:</p>
 						<h4>-800 000 so'm</h4>
 					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
+
+					<div className='customer-info'>
+						<h2>Rahmatulloh Madraximov</h2>
+						<a href=''>+998 91 123 45 67</a>
+						<p>Jami nasiya:</p>
+						<h4>-800 000 so'm</h4>
+					</div>
 				</div>
 			</div>
 		</div>
