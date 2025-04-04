@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './header/Header';
+import CreateCustomer from './pages/customer/CreateCustomer';
 import Customer from './pages/customer/Customer';
 import Home from './pages/home/Home';
 import Kalendar from './pages/kalendar/Kalendar';
@@ -21,6 +22,7 @@ const App = () => {
 					<Route path='/home' element={<Home />} />
 					<Route path='/kalendar' element={<Kalendar />} />
 					<Route path='/customer' element={<Customer />} />
+					<Route path='/createcustomer' element={<CreateCustomer />} />
 				</Route>
 				<Route path='/' element={<Navigate to='/home' replace />} />
 			</Routes>

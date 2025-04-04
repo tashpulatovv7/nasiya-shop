@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './customer.css';
 
 const Customer = () => {
@@ -72,6 +73,10 @@ const Customer = () => {
 						<h4>-800 000 so'm</h4>
 					</div>
 				</div>
+
+				<Link to='/createcustomer'>
+					<button className='customer-add-btn'>Yaratish</button>
+				</Link>
 			</div>
 		</div>
 	);
