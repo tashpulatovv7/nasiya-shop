@@ -91,7 +91,6 @@ import {
 	StarOutlined,
 	UserAddOutlined,
 } from '@ant-design/icons';
-import { MenuProps } from 'antd';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import useDebtor from '../../hooks/useDebtor';
@@ -99,7 +98,7 @@ import './customer.css';
 
 const Customers = () => {
 	const { debtors } = useDebtor();
-	const [filterVisible, setFilterVisible] = useState(false);
+	// const [filterVisible, setFilterVisible] = useState(false);
 	const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
 	// const [setIsModalOpen] = useState(false);
 
@@ -116,12 +115,12 @@ const Customers = () => {
 	// 	}
 	// };
 
-	const menuItems: MenuProps['items'] = [
-		{ key: '1', label: 'Mashhur' },
-		{ key: '2', label: 'Yangi mijozlar' },
-		{ key: '3', label: 'Faol mijozlar' },
-		{ key: '4', label: 'No-faol mijozlar' },
-	];
+	// const menuItems: MenuProps['items'] = [
+	// 	{ key: '1', label: 'Mashhur' },
+	// 	{ key: '2', label: 'Yangi mijozlar' },
+	// 	{ key: '3', label: 'Faol mijozlar' },
+	// 	{ key: '4', label: 'No-faol mijozlar' },
+	// ];
 
 	const toggleFavorite = (id: string) => {
 		setFavorites(prev => ({ ...prev, [id]: !prev[id] }));
