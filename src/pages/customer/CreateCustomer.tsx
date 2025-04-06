@@ -24,7 +24,7 @@ export default function CreateCustomer() {
 	// };
 
 	return (
-		<div className='container'>
+		<div className='create-container'>
 			<h2 className='title'>Mijoz yaratish</h2>
 
 			<div>
