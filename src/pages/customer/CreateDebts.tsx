@@ -1,7 +1,7 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createDebt } from './CreateDebts';
+import { createDebt } from './CreateDebtsStore';
 import './debts.css';
 
 const CreateDebts = () => {
