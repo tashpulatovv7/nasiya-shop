@@ -1,89 +1,3 @@
-// import { Link } from 'react-router-dom';
-// import './customer.css';
-
-// const Customer = () => {
-// 	return (
-// 		<div className='container'>
-// 			<div className='customer-container'>
-// 				<div className='customer-header'>
-// 					<input type='text' placeholder='Mijozlarni qidirish...' />
-// 					<svg
-// 						width='24'
-// 						height='24'
-// 						viewBox='0 0 24 24'
-// 						fill='none'
-// 						xmlns='http://www.w3.org/2000/svg'
-// 					>
-// 						<path
-// 							d='M10 18H21M3 18H6M6 18V20M6 18V16M20 12H21M3 12H16M16 12V14M16 12V10M14 6H21M3 6H10M10 6V8M10 6V4'
-// 							stroke='#1A1A1A'
-// 							stroke-width='2'
-// 							stroke-linecap='round'
-// 							stroke-linejoin='round'
-// 						/>
-// 					</svg>
-// 				</div>
-// 				<div className='customer-content'>
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-
-// 					<div className='customer-info'>
-// 						<h2>Rahmatulloh Madraximov</h2>
-// 						<a href=''>+998 91 123 45 67</a>
-// 						<p>Jami nasiya:</p>
-// 						<h4>-800 000 so'm</h4>
-// 					</div>
-// 				</div>
-
-// 				<Link to='/createcustomer'>
-// 					<button className='customer-add-btn'>Yaratish</button>
-// 				</Link>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default Customer;
-
 import {
 	SearchOutlined,
 	SlidersOutlined,
@@ -92,40 +6,46 @@ import {
 	UserAddOutlined,
 } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import useDebtor from '../../hooks/useDebtor';
+import { useCustomerStore } from './CustomerStore';
 import './customer.css';
+
+interface PhoneNumber {
+	number: string;
+}
+
+interface Debt {
+	debt_sum?: string;
+}
+
+interface BaseCustomer {
+	id: string;
+	full_name: string;
+	phone_numbers: PhoneNumber[];
+}
+
+interface Debtor extends BaseCustomer {
+	debts: Debt[];
+}
+
+interface Customer extends BaseCustomer {
+	// no debts in manually created customer
+}
+
+type CustomerType = Debtor | Customer;
 
 const Customers = () => {
 	const { debtors } = useDebtor();
-	// const [filterVisible, setFilterVisible] = useState(false);
+	const createdCustomers = useCustomerStore(state => state.customers);
 	const [favorites, setFavorites] = useState<{ [key: string]: boolean }>({});
-	// const [setIsModalOpen] = useState(false);
+	const navigate = useNavigate();
 
-	// const handleAddDebtor = async (debtorData: any) => {
-	// 	try {
-	// 		await addDebtor(debtorData);
-	// 		message.success("Qarzdor muvaffaqiyatli qo'shildi!");
-
-	// 		setIsModalOpen(false);
-
-	// 		refetch();
-	// 	} catch (err) {
-	// 		message.error("Qarzdorni qo'shishda xatolik yuz berdi.");
-	// 	}
-	// };
-
-	// const menuItems: MenuProps['items'] = [
-	// 	{ key: '1', label: 'Mashhur' },
-	// 	{ key: '2', label: 'Yangi mijozlar' },
-	// 	{ key: '3', label: 'Faol mijozlar' },
-	// 	{ key: '4', label: 'No-faol mijozlar' },
-	// ];
+	const allCustomers: CustomerType[] = [...createdCustomers, ...(debtors || [])];
 
 	const toggleFavorite = (id: string) => {
 		setFavorites(prev => ({ ...prev, [id]: !prev[id] }));
 	};
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -139,20 +59,24 @@ const Customers = () => {
 						<input type='text' placeholder='Mijozlarni qidirish...' />
 						<SearchOutlined className='customers__search-icon' />
 					</form>
-
 					<button className='customers__search-btn'>
 						<SlidersOutlined className='customers__search-btn__icon' />
 					</button>
 				</div>
 
 				<div className='customers__list'>
-					{Array.isArray(debtors) && debtors.length > 0 ? (
-						debtors.map(customer => {
-							const totalDebt = customer.debts.reduce(
-								(sum, debt) =>
-									sum + parseFloat(debt.debt_sum || '0'),
-								0
-							);
+					{allCustomers.length > 0 ? (
+						allCustomers.map(customer => {
+							const isDebtor = 'debts' in customer;
+							const totalDebt = isDebtor
+								? (customer as Debtor).debts.reduce(
+										(sum: number, debt: Debt) =>
+											sum +
+											parseFloat(debt.debt_sum || '0'),
+										0
+								  )
+								: 0;
+
 							return (
 								<div
 									key={customer.id}
@@ -166,10 +90,9 @@ const Customers = () => {
 											{customer.full_name}
 										</h3>
 										<p className='customers__phone'>
-											{customer.phone_numbers.length > 0
-												? customer.phone_numbers[0]
-														.number
-												: "Telefon raqami yo'q"}
+											{customer.phone_numbers?.[0]
+												?.number ||
+												"Telefon raqami yo'q"}
 										</p>
 										<p className='customers__debt-label'>
 											Jami nasiya:
@@ -206,12 +129,8 @@ const Customers = () => {
 				</div>
 
 				<Link to='/createcustomer'>
-					<button
-						className='customers__add'
-						// onClick={() => setIsModalOpen(true)}
-					>
-						<UserAddOutlined />
-						Yaratish
+					<button className='customers__add'>
+						<UserAddOutlined /> Yaratish
 					</button>
 				</Link>
 			</div>
