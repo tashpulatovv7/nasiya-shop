@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { createDebt } from './CreateDebts';
 import './debts.css';
 
-export default function CreateNasiya() {
+const CreateDebts = () => {
 	const [name, setName] = useState('');
 	const [date, setDate] = useState('');
 	const [isToday, setIsToday] = useState(false);
@@ -172,4 +172,6 @@ export default function CreateNasiya() {
 			</button>
 		</div>
 	);
-}
+};
+
+export default CreateDebts;
